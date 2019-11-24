@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/material_layout_keylines_screen_edge_margin"
-    tools:context="com.example.android.mangaproject.activity.MainActivity">
+    tools:context="com.example.android.mangaproject.activity.MainActivity"
+    android:background="@drawable/aaa">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list_manga"
