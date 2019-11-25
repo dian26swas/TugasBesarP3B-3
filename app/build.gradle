@@ -43,4 +43,5 @@ dependencies {
         compile 'com.github.chrisbanes:PhotoView:1.2.6'
         compile 'org.greenrobot:eventbus:3.0.0'
         testCompile 'junit:junit:4.12'
+    compile 'com.romainpiel.shimmer:library:1.4.0@aar'
 }

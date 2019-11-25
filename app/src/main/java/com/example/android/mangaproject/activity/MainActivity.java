@@ -18,6 +18,8 @@ import com.example.android.mangaproject.model.MangasResponse;
 import com.example.android.mangaproject.R;
 import com.example.android.mangaproject.rest.ApiClient;
 import com.example.android.mangaproject.rest.ApiInterface;
+import com.romainpiel.shimmer.Shimmer;
+import com.romainpiel.shimmer.ShimmerTextView;
 
 import java.util.List;
 
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements MangasAdapter.OnI
     private List<Manga> list_manga;
     ApiInterface apiService;
     protected Button btn_rn;
+    ShimmerTextView tv;
+    Shimmer shimmer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +50,13 @@ public class MainActivity extends AppCompatActivity implements MangasAdapter.OnI
             this.btn_rn=findViewById(R.id.btn_begin);
             this.btn_rn.setOnClickListener(this);
 
+            tv = (ShimmerTextView) findViewById(R.id.shimmer_tv);
+            shimmer = new Shimmer();
+            shimmer.start(tv);
+
 
     }
+
 
     private void loadData() {
         Call<MangasResponse> call = apiService.getManga(0, 100);
@@ -100,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements MangasAdapter.OnI
     public void onClick(View view) {
         if(view.getId()==this.btn_rn.getId())
         {
+            shimmer.cancel();
             setContentView(R.layout.activity_main);
             ButterKnife.bind(this);
             apiService = ApiClient.getClient().create(ApiInterface.class);
